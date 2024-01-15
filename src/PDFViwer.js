@@ -1,11 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
-
+import './PDFViewer.css'
 
 import { Viewer, Worker } from '@react-pdf-viewer/core'
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout'
-import '@react-pdf-viewer/core/lib/styles/index.css'
-import '@react-pdf-viewer/default-layout/lib/styles/index.css'
+import '@react-pdf-viewer/core/lib/styles/index.css';
+import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 
 
 function PDFViewer() {
@@ -46,7 +46,7 @@ function PDFViewer() {
         }
     }
 
-    const newplugin = defaultLayoutPlugin()
+    const defaultLayoutPluginInstance = defaultLayoutPlugin();
 
     return (
         <div className='mt-2 container'>
@@ -67,7 +67,7 @@ function PDFViewer() {
             <div className='pdf-view-section mt-5'>
                 <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
                     {viewFile && <>
-                        <Viewer fileUrl={viewFile} plugins={[newplugin]} />
+                        <Viewer fileUrl={viewFile} plugins={[defaultLayoutPluginInstance]} />
                     </>}
                     {!viewFile && <>No PDF File</>}
                 </Worker>
